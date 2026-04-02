@@ -1456,10 +1456,10 @@
 
       const data = await response.json();
 
-      if (response.ok && data.progress) {
-        // Progress — hide form, show confirmation
+      if (response.ok && data.success) {
+        // Success — hide form, show confirmation
         document.getElementById('contact-form-fields').style.display = 'none';
-        document.getElementById('form-progress').style.display = 'block';
+        document.getElementById('form-success').style.display = 'block';
       } else {
         // Server returned a validation error
         showFormError(data.error || 'Something went wrong. Please try again.');
