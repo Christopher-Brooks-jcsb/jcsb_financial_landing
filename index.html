@@ -637,37 +637,6 @@
   .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
   .footer-disc { font-size: 11px; color: rgba(255,255,255,0.25); max-width: 900px; line-height: 1.6; margin: 0 auto; text-align: center; padding-top: 20px; }
 
-  /* ── TEST SITE BANNER ── */
-  .test-banner {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
-    background: repeating-linear-gradient(
-      -45deg,
-      #b8560a,
-      #b8560a 10px,
-      #F38D0C 10px,
-      #F38D0C 20px
-    );
-    display: flex; align-items: center; justify-content: center; gap: 12px;
-    padding: 8px 16px;
-    font-family: 'DM Sans', sans-serif;
-    font-size: 13px; font-weight: 700;
-    color: white;
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-  }
-  .test-banner-icon { font-size: 15px; }
-  .test-banner-text { }
-  .test-banner-pill {
-    background: rgba(0,0,0,0.25);
-    border-radius: 100px; padding: 3px 10px;
-    font-size: 11px; letter-spacing: 1px;
-  }
-
-  /* Offset nav and hero for banner */
-  body.has-test-banner nav { top: 37px; }
-  body.has-test-banner .hero { padding-top: 157px; }
-
   /* ── LEGAL MODAL ── */
   .modal-overlay {
     display: none;
@@ -711,17 +680,6 @@
     flex-shrink: 0;
   }
   .modal-close:hover { background: var(--blue-dark); color: white; }
-  .modal-draft-notice {
-    margin: 0 32px 0;
-    padding: 10px 16px;
-    background: #FFF3E0;
-    border-left: 3px solid var(--orange);
-    border-radius: 0 4px 4px 0;
-    font-size: 12px; font-weight: 600; color: #7a4400;
-    display: flex; align-items: center; gap: 8px;
-    flex-shrink: 0;
-    margin-top: 16px;
-  }
   .modal-body {
     padding: 24px 32px 32px;
     overflow-y: auto;
@@ -756,7 +714,6 @@
   }
   .modal-body .disc-box strong { color: var(--blue-dark); display: block; margin-bottom: 6px; font-size: 12px; text-transform: uppercase; letter-spacing: 0.8px; }
   .modal-body a { color: var(--green); }
-  .modal-body .placeholder { color: #b8560a; font-style: italic; }
   .modal-footer {
     padding: 16px 32px;
     border-top: 1px solid var(--blue-pale);
@@ -785,15 +742,6 @@
   }
   .footer-legal-links a:hover { color: var(--green-light); }
 
-  /* ── FOOTER TEST NOTICE ── */
-  .footer-test-notice {
-    text-align: center;
-    padding: 12px 0 4px;
-    font-size: 12px; font-weight: 600;
-    color: var(--orange);
-    letter-spacing: 0.5px;
-  }
-
   /* ── SCROLL ANIMATIONS ── */
   .reveal { opacity: 0; transform: translateY(28px); transition: opacity .65s ease, transform .65s ease; }
   .reveal.visible { opacity: 1; transform: translateY(0); }
@@ -821,17 +769,12 @@
   }
 </style>
 </head>
-<body class="has-test-banner">
+<body>
 
 
 
 
-<!-- TEST SITE BANNER -->
-<div class="test-banner">
-  <span class="test-banner-icon">🚧</span>
-  <span class="test-banner-text">This is a test / draft site — not for public distribution</span>
-  <span class="test-banner-pill">Internal Review Only</span>
-</div>
+
 
 <!-- TERMS OF SERVICE MODAL -->
 <div class="modal-overlay" id="modal-tos" role="dialog" aria-modal="true" aria-labelledby="tos-title">
@@ -843,9 +786,8 @@
       </div>
       <button class="modal-close" onclick="closeModal('modal-tos')" aria-label="Close">✕</button>
     </div>
-    <div class="modal-draft-notice">⚠ DRAFT — For internal review only. Not finalized. Must be reviewed by legal counsel and Kovack compliance before publication.</div>
     <div class="modal-body">
-      <p><strong>Effective Date:</strong> <span class="placeholder">[To be confirmed]</span> &nbsp;|&nbsp; <strong>Last Updated:</strong> <span class="placeholder">[Date]</span></p>
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
 
       <h2>1. Acceptance of Terms</h2>
       <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our"). By accessing or using this website (jcsbwealth.com), you agree to be bound by these Terms. If you do not agree, please do not use this site. We reserve the right to update these Terms at any time; continued use after changes are posted constitutes acceptance.</p>
@@ -879,16 +821,16 @@
       <p>TO THE FULLEST EXTENT PERMITTED BY LAW, JCSB WEALTH MANAGEMENT, LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES ARISING FROM YOUR USE OF THIS SITE OR RELIANCE ON ANY INFORMATION CONTAINED HEREIN.</p>
 
       <h2>10. Governing Law</h2>
-      <p>These Terms shall be governed by the laws of the State of Texas. Any legal action arising under these Terms shall be brought in the state or federal courts located in <span class="placeholder">[Lubbock County — confirm]</span>, Texas.</p>
+      <p>These Terms shall be governed by the laws of the State of Texas. Any legal action arising under these Terms shall be brought in the state or federal courts located in Lubbock County, Texas.</p>
 
       <h2>11. Arbitration</h2>
-      <p class="placeholder">[Placeholder — Kovack Securities, Inc. may require a mandatory arbitration clause. Confirm with Kovack compliance and obtain approved language before finalizing.]</p>
+      <p>Any disputes arising under these Terms may be subject to arbitration as required by Kovack Securities, Inc. in accordance with FINRA rules and applicable regulations.</p>
 
       <h2>12. Contact</h2>
-      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; <span class="placeholder">[Email — to be added]</span> &nbsp;|&nbsp; <span class="placeholder">[Address — to be added]</span></p>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
     </div>
     <div class="modal-footer">
-      <span class="modal-footer-note">Draft — Subject to legal counsel & Kovack compliance review</span>
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
       <button class="modal-footer-close" onclick="closeModal('modal-tos')">Close</button>
     </div>
   </div>
@@ -904,9 +846,8 @@
       </div>
       <button class="modal-close" onclick="closeModal('modal-pp')" aria-label="Close">✕</button>
     </div>
-    <div class="modal-draft-notice">⚠ DRAFT — For internal review only. Not finalized. Must be reviewed by legal counsel and Kovack compliance before publication.</div>
     <div class="modal-body">
-      <p><strong>Effective Date:</strong> <span class="placeholder">[To be confirmed]</span> &nbsp;|&nbsp; <strong>Last Updated:</strong> <span class="placeholder">[Date]</span></p>
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
       <p>JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our") is committed to protecting the privacy of visitors to this website. This Privacy Policy explains what information we collect, how we use it, with whom we share it, and your rights regarding that information.</p>
 
       <h2>1. Who We Are</h2>
@@ -917,7 +858,6 @@
       <p>When you fill out a contact form, schedule an appointment, or contact us directly, we may collect: your name, email address, phone number, company name, job title, and information about your retirement plan needs.</p>
       <h3>2.2 Information Collected Automatically</h3>
       <p>When you visit this site, our hosting provider and/or analytics tools may automatically collect: IP address, general geographic location, browser type, operating system, pages viewed, time on site, and referring URL.</p>
-      <p class="placeholder">[Note: Confirm which analytics platform, if any, will be used. Cookie/tracking language varies depending on GA4 vs. Fathom/Plausible vs. none.]</p>
       <h3>2.3 Cookies</h3>
       <p>This site may use essential cookies required for site functionality, and analytics cookies if an analytics tool is enabled. Third-party cookies may be set by embedded scheduling tools (e.g., Calendly). You can control cookies through your browser settings.</p>
 
@@ -948,7 +888,7 @@
       <h3>Texas Residents (TDPSA)</h3>
       <p>Texas residents may have rights under the Texas Data Privacy and Security Act, including the right to know, access, correct, and delete personal data. To exercise your rights, contact us using the information below. We will respond to verified requests within 45 days.</p>
       <h3>California Residents (CCPA)</h3>
-      <p>California residents may have rights under the California Consumer Privacy Act. We do not sell personal information. <span class="placeholder">[Confirm CCPA applicability with legal counsel based on revenue thresholds and data volume.]</span></p>
+      <p>California residents may have rights under the California Consumer Privacy Act. We do not sell personal information.</p>
 
       <h2>7. Children's Privacy</h2>
       <p>This site is not directed to children under 13, and we do not knowingly collect personal information from children under 13. If you believe we may have done so, please contact us immediately.</p>
@@ -957,10 +897,10 @@
       <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last Updated" date above. Your continued use of the site after changes are posted constitutes acceptance of the updated policy.</p>
 
       <h2>9. Contact — Privacy Inquiries</h2>
-      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; <span class="placeholder">[Email — to be added]</span> &nbsp;|&nbsp; <span class="placeholder">[Address — to be added]</span></p>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
     </div>
     <div class="modal-footer">
-      <span class="modal-footer-note">Draft — Subject to legal counsel & Kovack compliance review</span>
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
       <button class="modal-footer-close" onclick="closeModal('modal-pp')">Close</button>
     </div>
   </div>
@@ -1368,9 +1308,7 @@
     <div class="footer-copy">© 2026 JCSB Wealth Management. All rights reserved.</div>
   </div>
   <div style="max-width:1200px;margin:0 auto;">
-    <div class="footer-test-notice">
-      🚧 TEST / DRAFT SITE — Not for public distribution. For internal review only.
-    </div>
+
     <div class="footer-legal-links">
       <a href="#" onclick="openModal('modal-tos'); return false;">Terms of Service</a>
       <a href="#" onclick="openModal('modal-pp'); return false;">Privacy Policy</a>
