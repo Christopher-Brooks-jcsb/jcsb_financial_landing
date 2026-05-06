@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>JCSB Wealth Management — Enter to Win</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green: #3E8E63;
+    --green-hover: #56B079;
+    --green-light: #9DDCA7;
+    --green-subtle: #BFD4C8;
+    --blue-dark: #2F3E46;
+    --blue-mid: #517799;
+    --blue-body: #7A8C99;
+    --blue-pale: #DAE6EA;
+    --orange: #F38D0C;
+    --white: #FFFFFF;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--blue-dark);
+    color: var(--white);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  .page-wrap { position: relative; min-height: 100vh; display: flex; flex-direction: column; }
+
+  .bg-layer {
+    position: fixed; inset: 0;
+    background:
+      radial-gradient(ellipse 70% 60% at 85% 20%, rgba(62,142,99,0.14) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 60% at 10% 85%, rgba(81,119,153,0.12) 0%, transparent 60%),
+      var(--blue-dark);
+    z-index: 0;
+  }
+
+  .grid-bg {
+    position: fixed; inset: 0; opacity: 0.04;
+    background-image:
+      linear-gradient(rgba(157,220,167,1) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(157,220,167,1) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: 0;
+  }
+
+  .content {
+    position: relative; z-index: 1; flex: 1;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 48px 20px 64px;
+  }
+
+  /* ── LOGO ── */
+  .logo-wrap { margin-bottom: 40px; text-align: center; }
+  .logo-wrap img { height: 52px; width: auto; }
+
+  /* ── BADGE ── */
+  .prize-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(62,142,99,0.15);
+    border: 1px solid rgba(62,142,99,0.35);
+    border-radius: 100px;
+    padding: 6px 18px; margin-bottom: 24px;
+    font-size: 12px; font-weight: 600;
+    color: var(--green-light);
+    letter-spacing: 1.2px; text-transform: uppercase;
+  }
+
+  .prize-dot {
+    width: 6px; height: 6px;
+    background: var(--green-light); border-radius: 50%;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
+
+  /* ── HEADLINE ── */
+  .headline {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 700; line-height: 1.1;
+    color: var(--white); text-align: center;
+    letter-spacing: -0.5px;
+    margin-bottom: 16px; max-width: 600px;
+  }
+
+  .headline em { font-style: italic; color: var(--green-light); }
+
+  .subhead {
+    font-size: 16px; font-weight: 300;
+    color: rgba(255,255,255,0.6);
+    text-align: center; max-width: 480px;
+    line-height: 1.65; margin-bottom: 44px;
+  }
+
+  /* ── FORM CARD ── */
+  .form-card {
+    background: rgba(255,255,255,0.045);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px; padding: 44px 48px;
+    width: 100%; max-width: 560px;
+    backdrop-filter: blur(12px);
+  }
+
+  .form-card-eyebrow {
+    font-size: 11px; font-weight: 600;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--green-light); margin-bottom: 6px;
+  }
+
+  .form-card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--white); margin-bottom: 28px; line-height: 1.2;
+  }
+
+  .form-row {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px; margin-bottom: 14px;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 6px; }
+  .form-group.full { grid-column: 1 / -1; }
+
+  .form-group label {
+    font-size: 11px; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.8px;
+    color: rgba(255,255,255,0.45);
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 8px; padding: 12px 14px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px; font-weight: 300;
+    color: var(--white); outline: none;
+    transition: border-color 0.2s, background 0.2s; width: 100%;
+  }
+
+  .form-group input::placeholder,
+  .form-group textarea::placeholder { color: rgba(255,255,255,0.22); }
+
+  .form-group select {
+    color: rgba(255,255,255,0.65); cursor: pointer; appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.35)' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+  }
+
+  .form-group select option { background: #2F3E46; color: white; }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--green); background: rgba(62,142,99,0.08);
+  }
+
+  .form-group textarea { resize: vertical; min-height: 80px; }
+
+  .optional-label {
+    font-size: 11px; font-weight: 300;
+    color: rgba(255,255,255,0.3); font-style: italic;
+    text-transform: none; letter-spacing: 0;
+  }
+
+  .form-divider { height: 1px; background: rgba(255,255,255,0.07); margin: 24px 0; }
+
+  /* ── SUBMIT ── */
+  .submit-area { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+
+  .btn-submit {
+    background: var(--orange); color: white;
+    border: none; border-radius: 6px;
+    padding: 16px 32px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px; font-weight: 700;
+    cursor: pointer; width: 100%;
+    transition: opacity 0.2s, transform 0.2s;
+    letter-spacing: 0.2px;
+  }
+
+  .btn-submit:hover { opacity: 0.88; transform: translateY(-1px); }
+  .btn-submit:disabled { opacity: 0.6; transform: none; cursor: not-allowed; }
+
+  .privacy-note {
+    font-size: 12px; color: rgba(255,255,255,0.28);
+    text-align: center; line-height: 1.5;
+  }
+
+  .privacy-note a {
+    color: rgba(255,255,255,0.45);
+    text-decoration: underline; cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .privacy-note a:hover { color: var(--green-light); }
+
+  /* ── SUCCESS ── */
+  .success-panel { display: none; text-align: center; padding: 16px 0; }
+
+  .success-icon {
+    width: 56px; height: 56px;
+    background: rgba(62,142,99,0.2);
+    border: 1px solid rgba(62,142,99,0.4);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 20px; font-size: 24px; color: var(--green-light);
+  }
+
+  .success-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700;
+    color: white; margin-bottom: 10px;
+  }
+
+  .success-body {
+    font-size: 15px; font-weight: 300;
+    color: rgba(255,255,255,0.6); line-height: 1.65;
+  }
+
+  /* ── ERROR ── */
+  #form-error {
+    display: none; color: #F38D0C; font-size: 13px; font-weight: 600;
+    padding: 10px 14px; background: rgba(243,141,12,0.1);
+    border-radius: 6px; border-left: 3px solid #F38D0C; margin-bottom: 14px;
+  }
+
+  /* ── TRUST BAR ── */
+  .trust-bar {
+    display: flex; align-items: center; justify-content: center;
+    gap: 32px; margin-top: 40px; padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.07); flex-wrap: wrap;
+  }
+
+  .trust-item {
+    display: flex; align-items: center; gap: 8px;
+    font-size: 13px; color: rgba(255,255,255,0.4);
+  }
+
+  .trust-dot { width: 5px; height: 5px; background: var(--green); border-radius: 50%; flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  .page-footer {
+    position: relative; z-index: 1;
+    padding: 28px 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center; max-width: 800px;
+    margin: 0 auto; width: 100%;
+  }
+
+  .footer-legal-links {
+    display: flex; gap: 24px; flex-wrap: wrap; justify-content: center;
+    padding: 0 0 16px; margin-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-legal-links a {
+    font-size: 12px; color: rgba(255,255,255,0.4);
+    text-decoration: none; cursor: pointer; transition: color 0.2s;
+  }
+
+  .footer-legal-links a:hover { color: var(--green-light); }
+
+  .footer-disc {
+    font-size: 10px; font-weight: 300;
+    color: rgba(255,255,255,0.22); line-height: 1.6;
+    margin-bottom: 8px;
+  }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 500;
+    background: rgba(15,25,30,0.78);
+    backdrop-filter: blur(4px);
+    align-items: center; justify-content: center;
+    padding: 24px;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal {
+    background: var(--white);
+    border-radius: 16px;
+    max-width: 720px; width: 100%;
+    max-height: 85vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 24px 80px rgba(0,0,0,0.35);
+    overflow: hidden;
+  }
+
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 24px 32px 20px;
+    border-bottom: 1px solid var(--blue-pale);
+    flex-shrink: 0;
+  }
+
+  .modal-eyebrow {
+    font-size: 11px; font-weight: 700; letter-spacing: 1.5px;
+    text-transform: uppercase; color: var(--green); margin-bottom: 4px;
+  }
+
+  .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700; color: var(--blue-dark);
+  }
+
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 8px;
+    background: var(--blue-pale); border: none; cursor: pointer;
+    font-size: 18px; color: var(--blue-dark);
+    display: flex; align-items: center; justify-content: center;
+    transition: background 0.2s; flex-shrink: 0;
+  }
+
+  .modal-close:hover { background: var(--blue-dark); color: white; }
+
+  .modal-body {
+    padding: 24px 32px 32px;
+    overflow-y: auto; flex: 1;
+    line-height: 1.75; color: var(--blue-dark);
+  }
+
+  .modal-body h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700; color: var(--blue-dark);
+    margin: 28px 0 8px; padding-bottom: 6px;
+    border-bottom: 1px solid var(--blue-pale);
+  }
+
+  .modal-body h2:first-child { margin-top: 0; }
+  .modal-body h3 { font-size: 14px; font-weight: 700; color: var(--green); margin: 18px 0 6px; }
+  .modal-body p { font-size: 13px; color: var(--blue-dark); margin-bottom: 10px; font-weight: 300; }
+  .modal-body ul { margin: 0 0 10px 20px; }
+  .modal-body ul li { font-size: 13px; color: var(--blue-dark); margin-bottom: 5px; font-weight: 300; }
+  .modal-body a { color: var(--green); }
+
+  .disc-box {
+    background: var(--blue-pale);
+    border-radius: 8px; padding: 14px 18px; margin-bottom: 14px;
+    font-size: 12px; color: var(--blue-dark); line-height: 1.65; font-weight: 300;
+  }
+
+  .disc-box strong {
+    color: var(--blue-dark); display: block; margin-bottom: 5px;
+    font-size: 11px; text-transform: uppercase; letter-spacing: 0.8px;
+  }
+
+  .modal-footer {
+    padding: 16px 32px;
+    border-top: 1px solid var(--blue-pale);
+    display: flex; justify-content: space-between; align-items: center;
+    flex-shrink: 0; background: #f9fbfc;
+  }
+
+  .modal-footer-note { font-size: 12px; color: var(--blue-body); }
+
+  .modal-footer-close {
+    background: var(--blue-dark); color: white;
+    border: none; border-radius: 6px; padding: 10px 24px;
+    font-size: 14px; font-weight: 600; cursor: pointer;
+    font-family: 'DM Sans', sans-serif; transition: background 0.2s;
+  }
+
+  .modal-footer-close:hover { background: var(--green); }
+
+  @media (max-width: 500px) {
+    .form-card { padding: 32px 24px; }
+    .form-row { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── TERMS OF SERVICE MODAL ── -->
+<div class="modal-overlay" id="modal-tos" role="dialog" aria-modal="true" aria-labelledby="tos-title">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">JCSB Wealth Management</div>
+        <div class="modal-title" id="tos-title">Terms of Service</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-tos')" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
+
+      <h2>1. Acceptance of Terms</h2>
+      <p>These Terms of Service ("Terms") constitute a legally binding agreement between you and JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our"). By submitting this raffle entry form, you agree to be bound by these Terms. We reserve the right to update these Terms at any time.</p>
+
+      <h2>2. Description of This Form</h2>
+      <p>This raffle entry form is operated by JCSB Wealth Management, LLC for use at the Amarillo Chamber of Commerce trade show. Nothing submitted through this form constitutes investment advice, legal advice, tax advice, or any other form of professional advice, nor does it create an advisory or client relationship.</p>
+
+      <h2>3. Regulatory Disclosures</h2>
+      <div class="disc-box">
+        <strong>Required Disclosure</strong>
+        Brent Turner is registered with and offers securities through Kovack Securities, Inc. Member FINRA/SIPC. 6451 North Federal Hwy, Suite 1201, Ft. Lauderdale, FL 33308. (954) 782-4771. Advisory Services offered through Kovack Advisors, Inc., a SEC registered investment advisory firm. JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.
+      </div>
+
+      <h2>4. Raffle Entry</h2>
+      <p>No purchase necessary to enter or win. Entry into the raffle does not create an advisory, fiduciary, or client relationship. Winners will be contacted using the information provided. JCSB Wealth Management reserves the right to disqualify any entry it believes to be fraudulent or submitted in bad faith.</p>
+
+      <h2>5. Follow-Up Contact</h2>
+      <p>By submitting this form, you consent to follow-up contact from JCSB Wealth Management, LLC regarding the raffle and, where applicable, financial planning services. You may opt out of marketing communications at any time.</p>
+
+      <h2>6. Form Submissions — Regulatory Routing &amp; Retention</h2>
+      <p>Submissions through this form are routed to systems subject to the supervisory oversight of Kovack Securities, Inc. and Kovack Advisors, Inc. as required by FINRA, SEC, and applicable state securities regulations. Your submission data may be accessible to Kovack Securities, Inc. and/or Kovack Advisors, Inc. for supervisory and compliance review, and is subject to retention requirements under FINRA Rule 4511 and SEC Rule 17a-4.</p>
+
+      <h2>7. Limitation of Liability</h2>
+      <p>TO THE FULLEST EXTENT PERMITTED BY LAW, JCSB WEALTH MANAGEMENT, LLC SHALL NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, OR CONSEQUENTIAL DAMAGES ARISING FROM YOUR USE OF THIS FORM OR PARTICIPATION IN THE RAFFLE.</p>
+
+      <h2>8. Governing Law</h2>
+      <p>These Terms shall be governed by the laws of the State of Texas. Any legal action shall be brought in the state or federal courts located in Lubbock County, Texas.</p>
+
+      <h2>9. Contact</h2>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
+      <button class="modal-footer-close" onclick="closeModal('modal-tos')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── PRIVACY POLICY MODAL ── -->
+<div class="modal-overlay" id="modal-pp" role="dialog" aria-modal="true" aria-labelledby="pp-title">
+  <div class="modal">
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">JCSB Wealth Management</div>
+        <div class="modal-title" id="pp-title">Privacy Policy</div>
+      </div>
+      <button class="modal-close" onclick="closeModal('modal-pp')" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Effective Date:</strong> May 2026 &nbsp;|&nbsp; <strong>Last Updated:</strong> May 2026</p>
+      <p>JCSB Wealth Management, LLC ("JCSB," "we," "us," or "our") is committed to protecting the privacy of individuals who submit this raffle entry form at the Amarillo Chamber of Commerce trade show.</p>
+
+      <h2>1. Who We Are</h2>
+      <p>JCSB Wealth Management, LLC is a financial advisory firm based in Texas. Brent Turner is a Registered Representative of Kovack Securities, Inc. (Member FINRA/SIPC) and offers Advisory Services through Kovack Advisors, Inc., a SEC registered investment advisory firm. JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.</p>
+
+      <h2>2. Information We Collect</h2>
+      <p>When you complete this raffle entry form, we collect your first and last name, business name (optional), email address, phone number (optional), and your selected planning situation. We may also collect any optional note you provide.</p>
+
+      <h2>3. How We Use Your Information</h2>
+      <ul>
+        <li>To administer the raffle and contact the winner</li>
+        <li>To follow up regarding financial planning services where you have indicated interest</li>
+        <li>To comply with applicable legal and regulatory obligations</li>
+      </ul>
+      <p>We do not use your information to send unsolicited marketing communications. You may opt out at any time by contacting brent@jcsbadvisors.com.</p>
+
+      <h2>4. How We Share Your Information</h2>
+      <h3>4.1 We Do Not Sell Your Information</h3>
+      <p>JCSB Wealth Management, LLC does not sell, rent, or trade your personal information to third parties for their marketing purposes.</p>
+      <h3>4.2 Kovack Securities &amp; Kovack Advisors — Supervisory Access</h3>
+      <p>As a Registered Representative of Kovack Securities, Inc. and an Investment Advisor Representative of Kovack Advisors, Inc., Brent Turner operates under their supervisory oversight as required by FINRA, the SEC, and applicable state securities regulators. Form submissions routed through this form's backend infrastructure are subject to review by Kovack Securities, Inc. and/or Kovack Advisors, Inc. for supervisory and compliance purposes, and may be retained for the periods required by FINRA Rule 4511 and SEC Rule 17a-4. You may review Kovack Securities' Privacy Policy at: <a href="https://www.kovacksecurities.com/Privacy%20Policy.pdf" target="_blank" rel="noopener">kovacksecurities.com/Privacy Policy.pdf</a></p>
+      <h3>4.3 Legal Requirements</h3>
+      <p>We may disclose your information where required by law, regulation, court order, or government authority.</p>
+
+      <h2>5. Your Privacy Rights</h2>
+      <p>Texas residents may have rights under the Texas Data Privacy and Security Act, including the right to know, access, correct, and delete personal data. To exercise your rights, contact us at brent@jcsbadvisors.com. We will respond to verified requests within 45 days.</p>
+
+      <h2>6. Contact — Privacy Inquiries</h2>
+      <p>JCSB Wealth Management, LLC &nbsp;|&nbsp; Brent Turner, CFP® &nbsp;|&nbsp; (806) 677-9416 &nbsp;|&nbsp; brent@jcsbadvisors.com</p>
+    </div>
+    <div class="modal-footer">
+      <span class="modal-footer-note">JCSB Wealth Management, LLC</span>
+      <button class="modal-footer-close" onclick="closeModal('modal-pp')">Close</button>
+    </div>
+  </div>
+</div>
+
+<!-- ── PAGE ── -->
+<div class="page-wrap">
+  <div class="bg-layer"></div>
+  <div class="grid-bg"></div>
+
+  <div class="content">
+
+    <!-- Logo — swap src for your logo file path once deployed -->
+    <div class="logo-wrap">
+      <img src="jcsb-logo.png" alt="JCSB Wealth Management">
+    </div>
+
+    <div class="prize-badge">
+      <span class="prize-dot"></span>
+      Amarillo Chamber Trade Show — 2025
+    </div>
+
+    <h1 class="headline">Enter to Win.<br><em>Walk Away Smarter</em><br>Either Way.</h1>
+
+    <p class="subhead">Fill out the form for a chance to win <strong style="color:rgba(255,255,255,0.85);font-weight:600;">a premium knife set</strong>. No strings attached — just a conversation worth having.</p>
+
+    <!-- Form card -->
+    <div class="form-card">
+      <div class="form-card-eyebrow">Raffle Entry</div>
+      <div class="form-card-title">You're one step from the drawing.</div>
+
+      <div id="form-fields">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-first">First Name</label>
+            <input type="text" id="r-first" placeholder="Jane" autocomplete="given-name">
+          </div>
+          <div class="form-group">
+            <label for="r-last">Last Name</label>
+            <input type="text" id="r-last" placeholder="Smith" autocomplete="family-name">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="r-biz">Business Name <span class="optional-label">optional</span></label>
+            <input type="text" id="r-biz" placeholder="Acme, Inc." autocomplete="organization">
+          </div>
+          <div class="form-group">
+            <label for="r-phone">Phone <span class="optional-label">optional</span></label>
+            <input type="tel" id="r-phone" placeholder="(806) 555-1234" autocomplete="tel">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group full">
+            <label for="r-email">Email Address</label>
+            <input type="email" id="r-email" placeholder="jane@acme.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="form-divider"></div>
+
+        <div class="form-group" style="margin-bottom:14px;">
+          <label for="r-situation">Which best describes your situation?</label>
+          <select id="r-situation">
+            <option value="" disabled selected>Select one…</option>
+            <option value="existing-plan">My company has an existing 401(k) plan</option>
+            <option value="no-plan">I'm exploring starting a retirement plan</option>
+            <option value="personal">I'm focused on personal or family wealth planning</option>
+            <option value="both">Both — business plan and personal planning</option>
+            <option value="just-entering">Just entering — no planning needs right now</option>
+          </select>
+        </div>
+
+        <div class="form-group" style="margin-bottom:24px;">
+          <label for="r-note">
+            Anything on your mind?
+            <span class="optional-label">&nbsp;optional</span>
+          </label>
+          <textarea id="r-note" placeholder="Questions, what you're working through, or just say hi…"></textarea>
+        </div>
+
+        <div id="form-error"></div>
+
+        <div class="submit-area">
+          <button class="btn-submit" id="submit-btn" onclick="handleSubmit()">Enter the Raffle →</button>
+          <p class="privacy-note">
+            Your information is not sold to third parties. By entering you agree to our
+            <a onclick="openModal('modal-tos')">Terms of Service</a> and
+            <a onclick="openModal('modal-pp')">Privacy Policy</a>,
+            and consent to follow-up contact from JCSB Wealth Management.
+          </p>
+        </div>
+      </div>
+
+      <!-- Success state -->
+      <div class="success-panel" id="success-panel">
+        <div class="success-icon">✓</div>
+        <div class="success-title">You're in the drawing.</div>
+        <p class="success-body">We'll be in touch if you win — and we look forward to the conversation either way. Stop by the booth anytime.</p>
+      </div>
+    </div>
+
+    <!-- Trust bar -->
+    <div class="trust-bar">
+      <div class="trust-item"><span class="trust-dot"></span>Brent Turner, CFP®</div>
+      <div class="trust-item"><span class="trust-dot"></span>10+ Years Experience</div>
+      <div class="trust-item"><span class="trust-dot"></span>Amarillo, TX</div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="page-footer">
+    <div class="footer-legal-links">
+      <a onclick="openModal('modal-tos')">Terms of Service</a>
+      <a onclick="openModal('modal-pp')">Privacy Policy</a>
+      <a href="http://kovacksecurities.com/Form_CRS.pdf" target="_blank" rel="noopener">Form CRS</a>
+    </div>
+    <p class="footer-disc">
+      Brent Turner is registered with and offers securities through Kovack Securities, Inc. Member
+      <a href="https://www.finra.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">FINRA</a>/<a href="https://www.sipc.org" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;">SIPC</a>.
+      6451 North Federal Hwy, Suite 1201, Ft. Lauderdale, FL 33308. (954) 782-4771.
+      Advisory Services offered through Kovack Advisors, Inc., a SEC registered investment advisory firm.
+      JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.
+    </p>
+    <p class="footer-disc">
+      No purchase necessary to enter or win. Entry does not create an advisory or client relationship. &nbsp;© 2026 JCSB Wealth Management.
+    </p>
+    <p class="footer-disc">
+      Certified Financial Planner Board of Standards, Inc. owns the certification marks CFP®, CERTIFIED FINANCIAL PLANNER™, and CFP® in the United States.
+    </p>
+  </div>
+</div>
+
+<script>
+  // ─────────────────────────────────────────────────────────────
+  //  API CONFIGURATION
+  //  Update this to match your Railway service URL.
+  // ─────────────────────────────────────────────────────────────
+  const API_BASE = 'https://jcsb-form-backend-production.up.railway.app';
+
+  // ─────────────────────────────────────────────────────────────
+  //  MODAL CONTROLS
+  // ─────────────────────────────────────────────────────────────
+  function openModal(id) {
+    document.getElementById(id).classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.modal-overlay').forEach(overlay => {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === this) closeModal(this.id);
+    });
+  });
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.modal-overlay.open').forEach(m => closeModal(m.id));
+    }
+  });
+
+  // ─────────────────────────────────────────────────────────────
+  //  ERROR HELPERS
+  // ─────────────────────────────────────────────────────────────
+  function showError(msg) {
+    const el = document.getElementById('form-error');
+    el.textContent = '⚠ ' + msg;
+    el.style.display = 'block';
+  }
+
+  function clearError() {
+    const el = document.getElementById('form-error');
+    el.textContent = '';
+    el.style.display = 'none';
+  }
+
+  // ─────────────────────────────────────────────────────────────
+  //  FORM SUBMIT — wired to Railway /api/raffle
+  // ─────────────────────────────────────────────────────────────
+  async function handleSubmit() {
+    const firstName = document.getElementById('r-first').value.trim();
+    const lastName  = document.getElementById('r-last').value.trim();
+    const email     = document.getElementById('r-email').value.trim();
+    const company   = document.getElementById('r-biz').value.trim();
+    const phone     = document.getElementById('r-phone').value.trim();
+    const situation = document.getElementById('r-situation').value;
+    const note      = document.getElementById('r-note').value.trim();
+
+    clearError();
+
+    // Client-side validation (mirrors server-side rules)
+    if (!firstName || !lastName) {
+      showError('Please enter your first and last name.');
+      return;
+    }
+    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      showError('Please enter a valid email address.');
+      return;
+    }
+    if (!situation) {
+      showError('Please select the option that best describes you.');
+      return;
+    }
+
+    const btn = document.getElementById('submit-btn');
+    const originalText = btn.textContent;
+    btn.textContent = 'Submitting…';
+    btn.disabled = true;
+
+    try {
+      const response = await fetch(`${API_BASE}/api/raffle`, {
+        method : 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body   : JSON.stringify({ firstName, lastName, email, company, phone, situation, note }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok && data.success) {
+        document.getElementById('form-fields').style.display = 'none';
+        document.getElementById('success-panel').style.display = 'block';
+      } else {
+        showError(data.error || 'Something went wrong. Please try again or see us at the booth.');
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+
+    } catch (err) {
+      showError('Unable to submit — please see us at the booth or call (806) 677-9416.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  }
+</script>
+
+</body>
+</html>
