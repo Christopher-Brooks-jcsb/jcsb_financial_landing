@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>JCSB Wealth Management — Enter to Win</title>
+<title>JCSB Wealth Management — Business Owner Morning Raffle</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,600&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -59,7 +59,7 @@
 
   /* ── LOGO ── */
   .logo-wrap { margin-bottom: 40px; text-align: center; }
-  .logo-wrap img { height: 160px; width: auto; }
+  .logo-wrap img { height: 52px; width: auto; }
 
   /* ── BADGE ── */
   .prize-badge {
@@ -490,22 +490,22 @@
 
     <!-- Logo — swap src for your logo file path once deployed -->
     <div class="logo-wrap">
-      <img src="JCSBWM_Logo.svg" alt="JCSB Wealth Management">
+      <img src="jcsb-logo.png" alt="JCSB Wealth Management">
     </div>
 
     <div class="prize-badge">
       <span class="prize-dot"></span>
-      Amarillo Chamber Trade Show — 2025
+      Business Owner Morning Session — 2025
     </div>
 
-    <h1 class="headline">Enter to Win.<br><em>Walk Away Smarter</em><br>Either Way.</h1>
+    <h1 class="headline">Enter to Win.<br><em>Four Days, Three Nights</em><br>in Angelfire.</h1>
 
-    <p class="subhead">Fill out the form for a chance to win <strong style="color:rgba(255,255,255,0.85);font-weight:600;">a premium knife set</strong>. No strings attached — just a conversation worth having.</p>
+    <p class="subhead">Fill out the form for a chance to win <strong style="color:rgba(255,255,255,0.85);font-weight:600;">a 4-day, 3-night stay at Brent's private cabin in Angelfire, NM</strong>. No strings attached — just a conversation worth having.</p>
 
     <!-- Form card -->
     <div class="form-card">
       <div class="form-card-eyebrow">Raffle Entry</div>
-      <div class="form-card-title">You're one step from the drawing.</div>
+      <div class="form-card-title">One step from the mountains.</div>
 
       <div id="form-fields">
         <div class="form-row">
@@ -576,7 +576,7 @@
       <div class="success-panel" id="success-panel">
         <div class="success-icon">✓</div>
         <div class="success-title">You're in the drawing.</div>
-        <p class="success-body">We'll be in touch if you win — and we look forward to the conversation either way. Stop by the booth anytime.</p>
+        <p class="success-body">We'll be in touch if you win the Angelfire stay — and we look forward to the conversation either way. Stop by the booth anytime.</p>
       </div>
     </div>
 
@@ -604,7 +604,7 @@
       JCSB Wealth Management, LLC is not affiliated with Kovack Securities, Inc. or Kovack Advisors, Inc.
     </p>
     <p class="footer-disc">
-      No purchase necessary to enter or win. Entry does not create an advisory or client relationship. &nbsp;© 2026 JCSB Wealth Management.
+      No purchase necessary to enter or win. Entry does not create an advisory or client relationship. Prize: 4-day, 3-night stay at private cabin in Angelfire, NM. &nbsp;© 2026 JCSB Wealth Management.
     </p>
     <p class="footer-disc">
       Certified Financial Planner Board of Standards, Inc. owns the certification marks CFP®, CERTIFIED FINANCIAL PLANNER™, and CFP® in the United States.
@@ -696,7 +696,7 @@
       const response = await fetch(`${API_BASE}/api/raffle`, {
         method : 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body   : JSON.stringify({ firstName, lastName, email, company, phone, situation, note }),
+        body   : JSON.stringify({ firstName, lastName, email, company, phone, situation, note, sourceTag: 'Raffle - BizOwner Morning' }),
       });
 
       const data = await response.json();
